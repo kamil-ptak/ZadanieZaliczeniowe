@@ -42,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         btnGenerate = findViewById(R.id.btnGenerate);
         btnConfirm = findViewById(R.id.btnConfirm);
 
+        String[] positions = {"CEO", "Senior Developer", "Mid Developer", "Junior Developer"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, positions);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
     }
+
+
 }
