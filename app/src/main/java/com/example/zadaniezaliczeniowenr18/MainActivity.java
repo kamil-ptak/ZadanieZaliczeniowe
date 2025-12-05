@@ -15,6 +15,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnGenerate = findViewById(R.id.btnGenerate);
         btnConfirm = findViewById(R.id.btnConfirm);
 
-        String[] positions = {"CEO", "Senior Developer", "Mid Developer", "Junior Developer"};
+        String[] positions = {"Kierownik", "Straszy programista", "Młodszy", "Tester"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, positions);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -70,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void generatePassword() {
         String lengthStr = etPasswordLength.getText().toString();
         if (lengthStr.isEmpty()) return;
@@ -78,34 +80,36 @@ public class MainActivity extends AppCompatActivity {
         int length = Integer.parseInt(lengthStr);
         if (length <= 0) return;
 
-        String letters = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+        String letters = "qwertyuiopasdfghjklzxcvbnm";
+        String lettersUppercase = "QWERTYUIOPASDFGHJKLMNBVCXZ";
         String digits = "1234567890";
         String specialChars = "!@#$%^&*(),./:;{}+-=_";
 
         Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < length; i++) {
-            sb.append(letters.charAt(random.nextInt(letters.length())));
-        }
+        List<Character> passwordChars = new ArrayList<>();
 
         if (cbUpperLower.isChecked()) {
-            int index = random.nextInt(length);
-            char c = sb.charAt(index);
-            sb.setCharAt(index, Character.toUpperCase(c));
+            passwordChars.add(lettersUppercase.charAt(random.nextInt(lettersUppercase.length())));
         }
 
         if (cbDigits.isChecked()) {
-            int index = 0;
-            char digit = digits.charAt(random.nextInt(digits.length()));
-            sb.setCharAt(index, digit);
+            passwordChars.add(digits.charAt(random.nextInt(digits.length())));
         }
 
-        if (cbSpecial.isChecked() && length > 1) {
-            int index = 1;
-            char special = specialChars.charAt(random.nextInt(specialChars.length()));
-            sb.setCharAt(index, special);
+        if (cbSpecial.isChecked()) {
+            passwordChars.add(specialChars.charAt(random.nextInt(specialChars.length())));
         }
+
+
+        while (passwordChars.size() < length) {
+            passwordChars.add(letters.charAt(random.nextInt(letters.length())));
+        }
+
+        Collections.shuffle(passwordChars);
+
+
+        StringBuilder sb = new StringBuilder();
+        for (char c : passwordChars) sb.append(c);
 
         generatedPassword = sb.toString();
 
@@ -114,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("ok", null);
         builder.show();
     }
+
 
 
     private void showSummary() {
