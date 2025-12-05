@@ -8,10 +8,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +50,53 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+
     }
 
+
+
+    private void generatePassword() {
+        String lengthStr = etPasswordLength.getText().toString();
+        if (lengthStr.isEmpty()) return;
+
+        int length = Integer.parseInt(lengthStr);
+        if (length <= 0) return;
+
+        String letters = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+        String digits = "1234567890";
+        String specialChars = "!@#$%^&*(),./:;{}+-=_";
+
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            sb.append(letters.charAt(random.nextInt(letters.length())));
+        }
+
+        if (cbUpperLower.isChecked()) {
+            int index = random.nextInt(length);
+            char c = sb.charAt(index);
+            sb.setCharAt(index, Character.toUpperCase(c));
+        }
+
+        if (cbDigits.isChecked()) {
+            int index = 0;
+            char digit = digits.charAt(random.nextInt(digits.length()));
+            sb.setCharAt(index, digit);
+        }
+
+        if (cbSpecial.isChecked() && length > 1) {
+            int index = 1;
+            char special = specialChars.charAt(random.nextInt(specialChars.length()));
+            sb.setCharAt(index, special);
+        }
+
+        generatedPassword = sb.toString();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(generatedPassword);
+        builder.setPositiveButton("ok", null);
+        builder.show();
+    }
 
 }
