@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#B0C4DE"
+    android:background="@color/b0c4de"
     android:id="@+id/main"
     android:padding="20dp">
 
@@ -85,8 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/generuj_haslo"
-        android:backgroundTint="#4682B4"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/_4682b4"
+        android:textColor="@color/white"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"/>
 
@@ -95,8 +95,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/zatwierdz"
-        android:backgroundTint="#4682B4"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/_4682b4"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>
