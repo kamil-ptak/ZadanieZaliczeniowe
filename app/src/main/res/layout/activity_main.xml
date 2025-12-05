@@ -1,19 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="#B0C4DE"
+    android:id="@+id/main"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Dane pracownika"
+        android:textStyle="bold"
+        android:textSize="22sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/etFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imię" />
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nazwisko" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stanowisko"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generowanie hasła"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/etPasswordLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ile znaków?"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/cbUpperLower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Małe i wielkie litery"
+        android:checked="true" />
+
+    <CheckBox
+        android:id="@+id/cbDigits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cyfry" />
+
+    <CheckBox
+        android:id="@+id/cbSpecial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Znaki specjalne" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generuj hasło"
+        android:backgroundTint="#4682B4"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zatwierdź"
+        android:backgroundTint="#4682B4"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
