@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dane pracownika"
+        android:text="@string/dane_pracownika"
         android:textStyle="bold"
         android:textSize="22sp" />
 
@@ -18,13 +18,13 @@
         android:id="@+id/etFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Imię" />
+        android:hint="@string/imie" />
 
     <EditText
         android:id="@+id/etLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nazwisko" />
+        android:hint="@string/nazwisko" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stanowisko"
+            android:text="@string/stanowisko"
             android:textStyle="bold"
             android:textSize="15sp"
             android:layout_marginEnd="10dp"/>
@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generowanie hasła"
+        android:text="@string/generowanie_hasla"
         android:textStyle="bold"
         android:textSize="22sp"
         android:layout_marginTop="20dp"/>
@@ -58,33 +58,33 @@
         android:id="@+id/etPasswordLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ile znaków?"
+        android:hint="@string/ile_znakow"
         android:inputType="number" />
 
     <CheckBox
         android:id="@+id/cbUpperLower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Małe i wielkie litery"
+        android:text="@string/male_i_wielkie_litery"
         android:checked="true" />
 
     <CheckBox
         android:id="@+id/cbDigits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cyfry" />
+        android:text="@string/cyfry" />
 
     <CheckBox
         android:id="@+id/cbSpecial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Znaki specjalne" />
+        android:text="@string/znaki_specjalne" />
 
     <Button
         android:id="@+id/btnGenerate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generuj hasło"
+        android:text="@string/generuj_haslo"
         android:backgroundTint="#4682B4"
         android:textColor="#FFFFFF"
         android:layout_gravity="end"
@@ -94,7 +94,7 @@
         android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zatwierdź"
+        android:text="@string/zatwierdz"
         android:backgroundTint="#4682B4"
         android:textColor="#FFFFFF"
         android:layout_marginTop="10dp"/>

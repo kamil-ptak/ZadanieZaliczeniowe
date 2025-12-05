@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ZadanieZaliczenioweNr18</string>
+    <string name="zatwierdz">Zatwierdź</string>
+    <string name="generuj_haslo">Generuj hasło</string>
+    <string name="znaki_specjalne">Znaki specjalne</string>
+    <string name="cyfry">Cyfry</string>
+    <string name="male_i_wielkie_litery">Małe i wielkie litery</string>
+    <string name="ile_znakow">Ile znaków?</string>
+    <string name="generowanie_hasla">Generowanie hasła</string>
+    <string name="stanowisko">Stanowisko</string>
+    <string name="imie">Imię</string>
+    <string name="nazwisko">Nazwisko</string>
+    <string name="dane_pracownika">Dane pracownika</string>
 </resources>
