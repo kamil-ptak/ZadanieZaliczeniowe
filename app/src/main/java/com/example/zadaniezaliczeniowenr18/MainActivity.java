@@ -99,4 +99,18 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+
+    private void showSummary() {
+        String firstName = etFirstName.getText().toString();
+        String lastName = etLastName.getText().toString();
+        String position = spinner.getSelectedItem().toString();
+
+        String message = "Dane pracownika: " + firstName + " " + lastName + "\n" + "Stanowisko: " + position + "\n" + "Hasło: " + generatedPassword;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton("ok", null);
+        builder.show();
+    }
+
 }
