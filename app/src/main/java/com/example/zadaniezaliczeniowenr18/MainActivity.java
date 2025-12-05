@@ -74,11 +74,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void generatePassword() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String lengthStr = etPasswordLength.getText().toString();
-        if (lengthStr.isEmpty()) return;
+        if (lengthStr.isEmpty()){
+            builder.setMessage("Nie wpisano ile znaków ma być wygenerowanych.");
+            builder.setPositiveButton("ok", null);
+            builder.show();
+            return;
+        };
 
         int length = Integer.parseInt(lengthStr);
-        if (length <= 0) return;
+        if (length <= 0){
+            builder.setMessage("Podana liczba znaków jest niepoprawna.");
+            builder.setPositiveButton("ok", null);
+            builder.show();
+            return;
+        };
 
         String letters = "qwertyuiopasdfghjklzxcvbnm";
         String lettersUppercase = "QWERTYUIOPASDFGHJKLMNBVCXZ";
@@ -113,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         generatedPassword = sb.toString();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(generatedPassword);
         builder.setPositiveButton("ok", null);
         builder.show();
