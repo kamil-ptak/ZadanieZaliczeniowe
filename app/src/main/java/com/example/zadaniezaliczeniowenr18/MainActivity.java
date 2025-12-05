@@ -1,6 +1,7 @@
 package com.example.zadaniezaliczeniowenr18;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -51,6 +52,21 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSummary();
+            }
+        });
+
+
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generatePassword();
+            }
+        });
     }
 
 
